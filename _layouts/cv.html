@@ -63,6 +63,13 @@
       <script>
         function downloadPDF() {
           const element = document.getElementById('cv-content');
+          
+          // Temporarily remove bottom margins and padding that cause an empty final page
+          const originalMarginBottom = element.style.marginBottom;
+          const originalPaddingBottom = element.style.paddingBottom;
+          element.style.marginBottom = '0';
+          element.style.paddingBottom = '0';
+
           const opt = {
             margin:       10,
             filename:     'Adam_Gordon_CV.pdf',
@@ -77,6 +84,8 @@
           
           html2pdf().set(opt).from(element).save().then(() => {
             btn.style.display = 'block';
+            element.style.marginBottom = originalMarginBottom;
+            element.style.paddingBottom = originalPaddingBottom;
           });
         }
       </script>
