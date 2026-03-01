@@ -1,0 +1,104 @@
+.cv-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #333;
+  }
+  .cv-header {
+    text-align: center;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .cv-header h1 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 2.5rem;
+  }
+  .cv-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+  .cv-section {
+    margin-bottom: 30px;
+  }
+  .cv-section h2 {
+    color: #2563eb;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  .job {
+    margin-bottom: 20px;
+  }
+  .job h3 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .job .company {
+    font-weight: bold;
+  }
+  .job .date {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+  .job .role {
+    font-style: italic;
+    color: #475569;
+    margin: 5px 0 10px;
+  }
+  .job p, .job ul {
+    margin: 0;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .job ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .skill-badge {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #334155;
+  }
+  .download-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    font-size: 1rem;
+  }
+  .download-btn:hover {
+    background: #1d4ed8;
+  }
+  
+  /* Hide button during PDF generation */
+  @media print {
+    .download-btn {
+      display: none;
+    }
+  }
