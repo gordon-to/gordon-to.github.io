@@ -102,6 +102,13 @@
     background: #1d4ed8;
   }
   
+  /* Hide download button on mobile devices (PDF looks messy, not useful on phone) */
+  @media screen and (max-width: 768px) {
+    .download-btn {
+      display: none !important;
+    }
+  }
+  
   /* Print optimizations for PDF generation */
   @media print {
     .download-btn {
