@@ -26,6 +26,9 @@
   .cv-section {
     margin-bottom: 30px;
   }
+  .cv-section:last-child {
+    margin-bottom: 0;
+  }
   .cv-section h2 {
     color: #2563eb;
     border-bottom: 1px solid #e2e8f0;
@@ -34,6 +37,9 @@
   }
   .job {
     margin-bottom: 20px;
+  }
+  .job:last-child {
+    margin-bottom: 0;
   }
   .job h3 {
     margin: 0;
