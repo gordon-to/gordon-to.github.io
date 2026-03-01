@@ -96,9 +96,27 @@
     background: #1d4ed8;
   }
   
-  /* Hide button during PDF generation */
+  /* Print optimizations for PDF generation */
   @media print {
     .download-btn {
       display: none;
+    }
+
+    /* Prevent page breaks inside a job entry */
+    .job {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Prevent a heading from being left at the bottom of a page */
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    /* Keep lists from breaking right at the start */
+    ul, ol {
+      page-break-before: avoid;
+      break-before: avoid;
     }
   }
