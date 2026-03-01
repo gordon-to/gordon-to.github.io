@@ -98,6 +98,20 @@
   
   /* Print optimizations for PDF generation */
   @media print {
+    /* Remove container margins/padding that cause empty trailing pages */
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    
+    .cv-container {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      max-width: 100%;
+    }
+
     .download-btn {
       display: none;
     }
