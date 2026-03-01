@@ -100,20 +100,25 @@
   @media print {
     /* Remove container margins/padding that cause empty trailing pages */
     body, html {
-      margin: 0;
-      padding: 0;
+      margin: 0 !important;
+      padding: 0 !important;
       background: #fff;
     }
     
+    /* Target the Jekyll page wrapper to strip its padding too */
+    .page-content {
+      padding: 0 !important;
+    }
+    
     .cv-container {
-      margin: 0;
-      padding: 0;
-      box-shadow: none;
-      max-width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
     }
 
     .download-btn {
-      display: none;
+      display: none !important;
     }
 
     /* Prevent page breaks inside a job entry */
