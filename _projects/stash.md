@@ -1,7 +1,7 @@
 ---
 title: "Stash"
-icon: "img/icons.png"
-icon_class: "crop-img crop-finance"
+icon: "img/stash.svg"
+icon_class: "crop-img"
 description: "Spearheaded massive CI/CD migration and AI advisory platform using AWS Bedrock and Plaid."
 from_date: 2021-08-01
 to_date: 2026-02-01

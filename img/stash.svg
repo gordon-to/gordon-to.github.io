@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 309 263" width="309" height="263">
+  <!-- Background circle or rounded rect to match icon style, let's keep it transparent with a bold shape -->
+  <g transform="translate(54, 31)">
+    <!-- Bank Building Base -->
+    <path d="M100 10 L190 60 L10 60 Z" fill="#2563eb" />
+    <rect x="10" y="60" width="180" height="20" fill="#1e3a8a" />
+    
+    <!-- Pillars -->
+    <rect x="20" y="80" width="25" height="80" fill="#3b82f6" />
+    <rect x="65" y="80" width="25" height="80" fill="#3b82f6" />
+    <rect x="110" y="80" width="25" height="80" fill="#3b82f6" />
+    <rect x="155" y="80" width="25" height="80" fill="#3b82f6" />
+    
+    <!-- Base -->
+    <rect x="0" y="160" width="200" height="20" fill="#1e3a8a" />
+    <rect x="-10" y="180" width="220" height="20" fill="#1e293b" />
+    
+    <!-- The letter S in the pediment (triangle) -->
+    <text x="100" y="52" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#ffffff" text-anchor="middle">S</text>
+  </g>
+</svg>
