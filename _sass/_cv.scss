@@ -97,6 +97,13 @@
   }
   
   /* Print optimizations for PDF generation */
+  .pdf-mode {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+  }
+  
   @media print {
     /* Remove container margins/padding that cause empty trailing pages */
     body, html {

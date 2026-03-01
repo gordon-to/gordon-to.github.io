@@ -63,12 +63,17 @@
       <script>
         function downloadPDF() {
           const element = document.getElementById('cv-content');
+          
+          // Toggle class to apply PDF-specific CSS (removes padding, avoids page break bugs)
+          element.classList.add('pdf-mode');
+
           const opt = {
             margin:       10,
             filename:     'Adam_Gordon_CV.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            html2canvas:  { scale: 2, useCORS: true, scrollY: 0 },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak:    { mode: ['css', 'legacy'] }
           };
           
           const btn = document.querySelector('.download-btn');
@@ -76,6 +81,7 @@
           
           html2pdf().set(opt).from(element).save().then(() => {
             btn.style.display = 'block';
+            element.classList.remove('pdf-mode');
           });
         }
       </script>
