@@ -1,77 +1,82 @@
 ---
-layout: default
+# no layout, fully custom
 ---
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!DOCTYPE html>
+<html>
 
-<div style="text-align: center; margin-top: 40px;">
-  <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
-</div>
+  {% include head.html %}
 
-<div class="cv-container" id="cv-content">
-  <div class="cv-header">
-    <h1>Adam Gordon</h1>
-    <p>ag@adamgordon.ca | Toronto, Ontario | www.adamgordon.ca</p>
-    <p>Chief Technology Officer & Engineering Leader</p>
-  </div>
+  <body>
 
-  <div class="cv-section">
-    <h2>Summary</h2>
-    <p>Engineering leader and full-stack developer with 10+ years of experience in application modernization and distributed systems. Passionate about building reliable, cutting-edge platforms, scaling microservices architectures, and leading teams to deliver transformative user experiences.</p>
-  </div>
+    <div class="page-content" style="padding-top: 0;">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-  <div class="cv-section">
-    <h2>Technical Skills</h2>
-    <div class="skills-list">
-      <span class="skill-badge">Elixir</span>
-      <span class="skill-badge">Java</span>
-      <span class="skill-badge">Node.js</span>
-      <span class="skill-badge">React</span>
-      <span class="skill-badge">GCP & AWS</span>
-      <span class="skill-badge">Docker</span>
-      <span class="skill-badge">Terraform</span>
-      <span class="skill-badge">Apache Kafka</span>
-      <span class="skill-badge">Scala</span>
-      <span class="skill-badge">Microservices</span>
+      <div style="text-align: center; margin-top: 40px;">
+        <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+      </div>
+
+      <div class="cv-container" id="cv-content">
+        <div class="cv-header">
+          <h1>Adam Gordon</h1>
+          <p>ag@adamgordon.ca | Toronto, Ontario | www.adamgordon.ca</p>
+          <p>Chief Technology Officer & Engineering Leader</p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Summary</h2>
+          <p>Engineering leader and full-stack developer with 10+ years of experience in application modernization and distributed systems. Passionate about building reliable, cutting-edge platforms, scaling microservices architectures, and leading teams to deliver transformative user experiences.</p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Technical Skills</h2>
+          <div class="skills-list">
+            <span class="skill-badge">Elixir</span>
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">GCP & AWS</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Terraform</span>
+            <span class="skill-badge">Apache Kafka</span>
+            <span class="skill-badge">Scala</span>
+            <span class="skill-badge">Microservices</span>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Experience</h2>
+          {% assign cv_projects = site.projects | where_exp:"item", "item.cv_date" | sort: 'to_date' | reverse %}
+          {% for project in cv_projects %}
+          <div class="job">
+            <h3><span class="company">{{ project.company }}</span> <span class="date">{{ project.cv_date }}</span></h3>
+            <div class="role">{{ project.role }}</div>
+            {{ project.content }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <script>
+        function downloadPDF() {
+          const element = document.getElementById('cv-content');
+          const opt = {
+            margin:       10,
+            filename:     'Adam_Gordon_CV.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          };
+          
+          const btn = document.querySelector('.download-btn');
+          btn.style.display = 'none';
+          
+          html2pdf().set(opt).from(element).save().then(() => {
+            btn.style.display = 'block';
+          });
+        }
+      </script>
     </div>
-  </div>
 
-  <div class="cv-section">
-    <h2>Experience</h2>
-    {% assign cv_projects = site.projects | where_exp:"item", "item.cv_date" | sort: 'to_date' | reverse %}
-    {% for project in cv_projects %}
-    <div class="job">
-      <h3><span class="company">{{ project.company }}</span> <span class="date">{{ project.cv_date }}</span></h3>
-      <div class="role">{{ project.role }}</div>
-      {{ project.content }}
-    </div>
-    {% endfor %}
-  </div>
+  </body>
 
-  <div class="cv-section">
-    <h2>Education</h2>
-    <div class="job">
-      <h3><span class="company">University of Toronto</span></h3>
-      <div class="role">Computer Science</div>
-    </div>
-  </div>
-</div>
-
-<script>
-  function downloadPDF() {
-    const element = document.getElementById('cv-content');
-    const opt = {
-      margin:       10,
-      filename:     'Adam_Gordon_CV.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true },
-      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-    
-    const btn = document.querySelector('.download-btn');
-    btn.style.display = 'none';
-    
-    html2pdf().set(opt).from(element).save().then(() => {
-      btn.style.display = 'block';
-    });
-  }
-</script>
+</html>
