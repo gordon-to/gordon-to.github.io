@@ -97,36 +97,9 @@
   }
   
   /* Print optimizations for PDF generation */
-  .pdf-mode {
-    margin: 0 !important;
-    padding: 10mm !important;
-    box-shadow: none !important;
-    max-width: 800px !important;
-    width: 800px !important;
-  }
-  
   @media print {
-    /* Remove container margins/padding that cause empty trailing pages */
-    body, html {
-      margin: 0 !important;
-      padding: 0 !important;
-      background: #fff;
-    }
-    
-    /* Target the Jekyll page wrapper to strip its padding too */
-    .page-content {
-      padding: 0 !important;
-    }
-    
-    .cv-container {
-      margin: 0 !important;
-      padding: 0 !important;
-      box-shadow: none !important;
-      max-width: none !important;
-    }
-
     .download-btn {
-      display: none !important;
+      display: none;
     }
 
     /* Prevent page breaks inside a job entry */
