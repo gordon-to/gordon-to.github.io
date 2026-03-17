@@ -2,7 +2,7 @@
 title: "Stash"
 icon: "img/stash.svg"
 icon_class: "crop-img"
-description: "Lead integration for AI finacial advisory platform using OpenAI and Plaid."
+description: "Lead integration for AI financial advisory platform using OpenAI and Plaid."
 from_date: 2021-08-01
 to_date: 2026-02-01
 company: "Stash"
